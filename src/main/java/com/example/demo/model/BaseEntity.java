@@ -9,6 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 
+
 public class BaseEntity {
     @JsonIgnore
     private Date createTime;
