@@ -1,15 +1,13 @@
 package com.example.demo.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class Banner extends BaseEntity{
     @Id
