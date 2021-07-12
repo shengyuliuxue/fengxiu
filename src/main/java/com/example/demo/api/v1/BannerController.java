@@ -22,7 +22,7 @@ public class BannerController {
         if(banner.isPresent()){
             return bannerService.findById(id);
         }else {
-            throw new NotFoundException(123456);
+            throw new NotFoundException(10001);
         }
     }
 }

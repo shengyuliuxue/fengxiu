@@ -1,7 +1,9 @@
 package com.example.demo.core;
 
 
+import com.example.demo.core.configuration.ExceptionCodeConfiguration;
 import com.example.demo.exception.http.HttpException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 
 @ControllerAdvice
 public class GlobalExceptionAdvice {
+
+    @Autowired
+    private ExceptionCodeConfiguration exceptionConfig;
 
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
@@ -30,7 +35,7 @@ public class GlobalExceptionAdvice {
     public ResponseEntity<UnifyResponse> handleHttpException(HttpServletRequest req, HttpException e){
         String reqUrl = req.getRequestURI();
         String method = req.getMethod();
-        UnifyResponse unifyResponse = new UnifyResponse(e.getCode(), "XXX", method + " " + reqUrl);
+        UnifyResponse unifyResponse = new UnifyResponse(e.getCode(), exceptionConfig.getMessage(e.getCode()), method + " " + reqUrl);
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
         HttpStatus httpStatus = HttpStatus.resolve(e.getHttpStatusCode());

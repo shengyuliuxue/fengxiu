@@ -11,7 +11,6 @@ import java.util.Date;
 @Setter
 @MappedSuperclass
 public class BaseEntity {
-
     private Date createTime;
     private Date updateTime;
     private Date deleteTime;
