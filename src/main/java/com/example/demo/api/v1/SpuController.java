@@ -14,8 +14,8 @@ import java.util.Optional;
 @RestController
 public class SpuController {
     @Autowired SpuService spuService;
-    @GetMapping("/spu/{id}")
-    public Optional<Spu> spu(@PathVariable("id") @NotBlank  int id){
+    @GetMapping("/spu/{id}/detail")
+    public Optional<Spu> spu(@PathVariable("id") @NotBlank  Long id){
         Optional<Spu> spu = spuService.getSpu(id);
         if(spu.isPresent()){
             return spuService.getSpu(id);

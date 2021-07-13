@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;
 
-public interface SpuRepository extends JpaRepository<Spu, Integer> {
-    Optional<Spu> getSpuById(Integer id);
+public interface SpuRepository extends JpaRepository<Spu, Long> {
+    Optional<Spu> getSpuById(Long id);
 }

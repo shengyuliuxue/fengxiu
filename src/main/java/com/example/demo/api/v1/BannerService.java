@@ -10,7 +10,7 @@ import java.util.Optional;
 public class BannerService {
     @Autowired
     private BannerRepository bannerRepository;
-    public Optional<Banner> findById(Integer id){
+    public Optional<Banner> findById(Long id){
         return bannerRepository.findById(id);
     }
 }
