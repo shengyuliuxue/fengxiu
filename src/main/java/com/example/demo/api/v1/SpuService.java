@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class SpuService {
     @Autowired SpuRepository spuRepository;
-   public Optional<Spu> getSpu(Integer id){
+   public Optional<Spu> getSpu(Long id){
        return spuRepository.getSpuById(id);
    }
 
