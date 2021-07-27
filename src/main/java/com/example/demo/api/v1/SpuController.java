@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -24,7 +25,7 @@ import java.util.Optional;
 public class SpuController {
     @Autowired SpuService spuService;
     @GetMapping("/spu/{id}/detail")
-    public Optional<Spu> spu(@PathVariable("id") @NotBlank  Long id){
+    public Optional<Spu> spu(@PathVariable("id") @NotBlank @Positive(message = "{id.positive}")  Long id){
         Optional<Spu> spu = spuService.getSpu(id);
         if(spu.isPresent()){
             return spu;
@@ -81,7 +82,7 @@ public class SpuController {
     }
 
     @GetMapping("category/{id}")
-    public Paging<Spu, SpuSimplifyVO> getCategory( @PathVariable("id") Long id,
+    public Paging<Spu, SpuSimplifyVO> getCategory( @PathVariable("id") @Positive(message = "must positive!!!")  Long id,
                                             @RequestParam(defaultValue = "false") Boolean is_root,
                                             @RequestParam(defaultValue = "0") Integer start,
                                             @RequestParam(defaultValue = "2") Integer count){
