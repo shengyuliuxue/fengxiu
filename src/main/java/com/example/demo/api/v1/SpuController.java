@@ -81,7 +81,7 @@ public class SpuController {
     }
 
     @GetMapping("category/{id}")
-    public List<SpuSimplifyVO> getCategory( @PathVariable("id") Long id,
+    public Paging<Spu, SpuSimplifyVO> getCategory( @PathVariable("id") Long id,
                                             @RequestParam(defaultValue = "false") Boolean is_root,
                                             @RequestParam(defaultValue = "0") Integer start,
                                             @RequestParam(defaultValue = "2") Integer count){
@@ -89,7 +89,7 @@ public class SpuController {
         Pageable pageable = PageRequest.of(pageCounter.getPage(),pageCounter.getCount());
         Page<Spu> pageSpu = spuService.getCategory(false,id, pageable);
         Paging<Spu, SpuSimplifyVO> paging = new Paging<>(pageSpu, SpuSimplifyVO.class);
-        return paging.getKList();
+        return paging;
 
     }
 
