@@ -6,6 +6,8 @@ import javax.persistence.Id;
 
 @Getter
 @Setter
+
+
 public class SpuSimplifyVO {
     //@Id
     private Long id;

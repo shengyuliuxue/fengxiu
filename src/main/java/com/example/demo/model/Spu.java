@@ -23,6 +23,8 @@ public class Spu extends BaseEntity{
     private String tags;
     private Boolean isTest;
     private String sketchSpecId;
+    private Long categoryId;
+    private Long rootCategoryId;
     public Spu(){}
 
     @OneToMany(fetch = FetchType.LAZY)
