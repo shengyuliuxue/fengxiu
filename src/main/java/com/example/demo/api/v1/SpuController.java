@@ -3,9 +3,12 @@ package com.example.demo.api.v1;
 import com.example.demo.bo.PageCounter;
 import com.example.demo.bo.Paging;
 import com.example.demo.exception.http.NotFoundException;
+import com.example.demo.model.Spec;
 import com.example.demo.model.Spu;
 import com.example.demo.util.Tools;
 import com.example.demo.vo.SpuSimplifyVO;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -91,6 +94,25 @@ public class SpuController {
         Page<Spu> pageSpu = spuService.getCategory(false,id, pageable);
         Paging<Spu, SpuSimplifyVO> paging = new Paging<>(pageSpu, SpuSimplifyVO.class);
         return paging;
+    }
+
+
+    @GetMapping("specSeri")
+    public String getSpecJson() throws JsonProcessingException {
+        Spec spec = new Spec(Long.valueOf(1),Long.valueOf(1),"car", "jeep");
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = mapper.writeValueAsString(spec);
+        System.out.println(jsonString);
+        return jsonString;
+    }
+
+    @GetMapping("specDseri")
+    public void deSpecJson() throws JsonProcessingException {
+
+        ObjectMapper mapper = new ObjectMapper();
+        String jsonString = "{\"keyId\":1,\"valueId\":1,\"key\":\"car\",\"value\":\"BYD\"}";
+        Spec spec = mapper.readValue(jsonString, Spec.class);
+        System.out.println(spec);
 
     }
 
