@@ -14,8 +14,8 @@ public class Category extends BaseEntity{
     private String name;
     private String description;
     private int level;
-    private Boolean is_root;
-    private Long parent_id;
+    private Boolean isRoot;
+    private Long parentId;
     private String img;
     private int index;
     private Boolean online;
