@@ -83,6 +83,7 @@ public class SpuController {
         PageCounter pageCounter = Tools.pageConverter(start,count);
         Page<Spu> pageSpu = spuService.getSpuLatest(pageCounter.getPage(), pageCounter.getCount());
         Paging<Spu, SpuSimplifyVO> paging = new Paging<>(pageSpu, SpuSimplifyVO.class);
+        System.out.println("666666666666666666666666666666666");
         return paging.getKList();
     }
 

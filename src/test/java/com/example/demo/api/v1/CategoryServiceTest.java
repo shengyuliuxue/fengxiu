@@ -14,9 +14,7 @@ class CategoryServiceTest {
     @Test
     void findAll() {
 
-            Map<String, List<Category>> map = service.findAll();
-            System.out.println(map);
-
-
+            //Map<String, List<Category>> map = service.findAll();
+           // System.out.println(map);
     }
 }

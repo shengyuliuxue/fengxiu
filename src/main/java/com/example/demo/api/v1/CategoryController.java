@@ -17,15 +17,19 @@ public class CategoryController {
     @Autowired CategoryRepository repository;
     @GetMapping("category/all")
     //@ResponseBody
-    public String  getAllCategory(){
-        List<Category> list = repository.findAll();
-        if(list == null){
-            //System.out.println(map);
-            return "no data";
-        }
-        return "categoryService.findAll";
-    }
-//    public String getAllCategory(){
-//        return "categoryService.findAll()";
+ //   public String  getAllCategory(){
+//        List<Category> list = repository.findAllByIsRoot(1);
+//        if(list == null){
+//            //System.out.println(map);
+//            return "no data";
+//        }
+//        return "categoryService.findAll";
 //    }
+    public  List<Category> getAllCategory(){
+        System.out.println("ooooii7777777777777777777777777777777777777777");
+        List<Category>  list = categoryService.findAll();
+        System.out.println("ooooii88888888888888888888888888888");
+        return list;
+
+    }
 }

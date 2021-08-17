@@ -13,14 +13,15 @@ import java.util.Optional;
 public class CategoryService {
     @Autowired
     CategoryRepository categoryRepository;
-    public Map<String, List<Category>> findAll(){
+    public  List<Category> findAll(){
 //        List<Category>  roots = categoryRepository.findAllByIsRootOrderByIndex(1);
 //        List<Category>  subs = categoryRepository.findAllByIsRootOrderByIndex(0);
-        List<Category>  roots = categoryRepository.findAll();
-        List<Category>  subs = categoryRepository.findAll();
-        HashMap<String, List<Category>> map = new HashMap<>();
-        map.put("roots", roots);
-        map.put("subs", subs);
-        return map;
+//        List<Category>  roots = categoryRepository.findAll();
+//        List<Category>  subs = categoryRepository.findAll();
+//        HashMap<String, List<Category>> map = new HashMap<>();
+//        map.put("roots", roots);
+//        map.put("subs", subs);
+//        return map;
+        return categoryRepository.findAll();
     }
 }

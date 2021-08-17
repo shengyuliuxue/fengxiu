@@ -13,10 +13,10 @@ public class Category extends BaseEntity{
     private Long id;
     private String name;
     private String description;
-    private int level;
+    private Integer level;
     private Boolean isRoot;
     private Long parentId;
     private String img;
-    private int index;
+    private Integer index;
     private Boolean online;
 }
