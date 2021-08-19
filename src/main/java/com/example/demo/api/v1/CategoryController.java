@@ -25,11 +25,11 @@ public class CategoryController {
 //        }
 //        return "categoryService.findAll";
 //    }
-    public  List<Category> getAllCategory(){
-        System.out.println("ooooii7777777777777777777777777777777777777777");
-        List<Category>  list = categoryService.findAll();
-        System.out.println("ooooii88888888888888888888888888888");
-        return list;
+    public  Map<String,List<Category>> getAllCategory(){
+        //System.out.println("ooooii7777777777777777777777777777777777777777");
+        Map<String,List<Category>>  map = categoryService.findAll();
+        //System.out.println("ooooii88888888888888888888888888888");
+        return map;
 
     }
 }
