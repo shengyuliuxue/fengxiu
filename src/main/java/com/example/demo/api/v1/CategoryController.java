@@ -16,6 +16,13 @@ public class CategoryController {
     @Autowired CategoryService categoryService;
     @Autowired CategoryRepository repository;
     @GetMapping("category/all")
+    public  Map<String,List<Category>> getAllCategory(){
+        //System.out.println("ooooii7777777777777777777777777777777777777777");
+        Map<String,List<Category>>  map = categoryService.findAll();
+        //System.out.println("ooooii88888888888888888888888888888");
+        return map;
+
+    }
     //@ResponseBody
  //   public String  getAllCategory(){
 //        List<Category> list = repository.findAllByIsRoot(1);
@@ -25,11 +32,5 @@ public class CategoryController {
 //        }
 //        return "categoryService.findAll";
 //    }
-    public  Map<String,List<Category>> getAllCategory(){
-        //System.out.println("ooooii7777777777777777777777777777777777777777");
-        Map<String,List<Category>>  map = categoryService.findAll();
-        //System.out.println("ooooii88888888888888888888888888888");
-        return map;
 
-    }
 }

@@ -39,5 +39,7 @@ public class Spu extends BaseEntity{
     @JoinColumn(name = "spuId")
     private List<SpuDetailImg> spuDetailImgList;
 
+    @ManyToMany(mappedBy = "spuList")
+    List<Theme> themeList;
 
 }
