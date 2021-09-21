@@ -5,5 +5,5 @@ import java.lang.annotation.Target;
 
 @Target(ElementType.METHOD)
 public @interface ScopeLevel {
-    int level() default 6;
+    int value() default 6;
 }

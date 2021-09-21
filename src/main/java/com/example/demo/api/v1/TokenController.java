@@ -1,6 +1,11 @@
 package com.example.demo.api.v1;
 
+import com.example.demo.util.MapAndJson;
 import com.example.demo.vo.UserVO;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -15,7 +20,7 @@ import java.util.Map;
 public class TokenController {
 
     @PostMapping(path="v1/token", consumes = "application/json", produces = "application/json")
-    public void getToken(@RequestBody UserVO account){
+    public Map<String, String> getToken(@RequestBody UserVO account){
         //appid:  wxe020efca01975f5b
         //Appsecret: 83eda50dea97ce05efcce515b29f989e
         //code: account
@@ -27,7 +32,28 @@ public class TokenController {
         map.put("SECRET","83eda50dea97ce05efcce515b29f989e");
         map.put("JSCODE",account.getAccount());
 
-        String result = restTemplate.getForObject(url,String.class,map);
-        System.out.println(result);
+        Map<String, String> resultmap  = new HashMap<>();
+        wexinLogResult result = new wexinLogResult();
+        MapAndJson<wexinLogResult> mapAndJson = new MapAndJson<>();
+        String resultStr = restTemplate.getForObject(url,String.class,map);
+        mapAndJson.convertToEntityAttribute(resultStr);
+        System.out.println();
+
+       // tokenMap.put("token", result);
+        return null;
     }
+
+
+
+
+}
+
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+class wexinLogResult{
+    public String session_key;
+    public String openid;
 }

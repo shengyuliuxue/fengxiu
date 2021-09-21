@@ -4,6 +4,7 @@ package com.example.demo.api.v1;
 import com.example.demo.exception.http.HttpException;
 import com.example.demo.exception.http.NotFoundException;
 import com.example.demo.model.Banner;
+import com.example.demo.util.ScopeLevel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -15,6 +16,7 @@ import java.util.Optional;
 public class BannerController {
     @Autowired
     private BannerService bannerService;
+    @ScopeLevel(4)
     @GetMapping("/banner")
     public Optional<Banner> banner(@RequestParam(value="id", defaultValue = "1") String id){
         //
